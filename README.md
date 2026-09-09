@@ -1,1 +1,2113 @@
 # LF-HUB
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>LF HUB | Intermediação Financeira</title>
+
+  <meta
+    name="description"
+    content="Soluções financeiras personalizadas para empresas. Capital de giro, Home Equity, Conta Escrow e Antecipação de Recebíveis."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+  >
+
+  <style>
+    :root {
+      --navy: #001326;
+      --navy-2: #061d34;
+      --navy-3: #0b2947;
+
+      --gold: #d6a342;
+      --gold-light: #e3b55c;
+      --gold-dark: #bc8526;
+
+      --white: #ffffff;
+      --off-white: #f8f8f7;
+
+      --text: #152234;
+      --muted: #627080;
+
+      --border: #e4e7ea;
+
+      --shadow: 0 10px 30px rgba(0, 17, 35, 0.10);
+
+      --max-width: 1280px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Montserrat", sans-serif;
+      color: var(--text);
+      background: #fff;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    select {
+      font-family: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(calc(100% - 40px), var(--max-width));
+      margin: 0 auto;
+    }
+
+    /* =========================================================
+       HEADER + HERO
+    ========================================================= */
+
+    .hero {
+      min-height: 670px;
+      color: var(--white);
+      position: relative;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(0, 15, 31, 0.97) 0%,
+          rgba(0, 15, 31, 0.91) 31%,
+          rgba(0, 16, 33, 0.52) 60%,
+          rgba(0, 15, 31, 0.20) 100%
+        ),
+        url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=90");
+
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.12),
+          transparent 40%,
+          rgba(0, 12, 25, 0.40)
+        );
+    }
+
+    .header {
+      height: 110px;
+      position: relative;
+      z-index: 20;
+
+      display: flex;
+      align-items: center;
+
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 35px;
+    }
+
+    /* LOGO */
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      min-width: 255px;
+    }
+
+    .logo-symbol {
+      width: 68px;
+      height: 68px;
+
+      position: relative;
+
+      border: 3px solid var(--gold);
+      border-radius: 50%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 27px;
+      font-style: italic;
+      font-weight: 800;
+
+      color: white;
+
+      transform: skew(-4deg);
+    }
+
+    .logo-symbol::before {
+      content: "";
+      width: 30px;
+      height: 3px;
+      background: white;
+
+      position: absolute;
+      left: 11px;
+      top: 31px;
+
+      transform: rotate(-13deg);
+      opacity: .9;
+    }
+
+    .logo-symbol span {
+      position: relative;
+      z-index: 2;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+    .logo-title {
+      font-size: 31px;
+      font-weight: 400;
+      letter-spacing: 2px;
+    }
+
+    .logo-title strong {
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .logo-subtitle {
+      margin-top: 9px;
+
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 4px;
+
+      color: rgba(255,255,255,.78);
+    }
+
+    /* NAV */
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 38px;
+    }
+
+    .nav a {
+      position: relative;
+
+      font-size: 13px;
+      font-weight: 600;
+
+      text-transform: uppercase;
+      transition: .25s;
+    }
+
+    .nav a:not(.contact-button)::after {
+      content: "";
+      position: absolute;
+
+      left: 0;
+      bottom: -13px;
+
+      width: 0;
+      height: 2px;
+
+      background: var(--gold);
+      transition: width .25s;
+    }
+
+    .nav a:hover {
+      color: var(--gold-light);
+    }
+
+    .nav a:hover::after,
+    .nav a.active::after {
+      width: 100%;
+    }
+
+    .contact-button {
+      padding: 16px 22px;
+
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+
+      color: #fff !important;
+
+      border-radius: 4px;
+
+      box-shadow: 0 7px 20px rgba(211, 157, 54, .25);
+    }
+
+    .contact-button:hover {
+      transform: translateY(-1px);
+    }
+
+    .mobile-menu-button {
+      display: none;
+
+      border: 0;
+      background: transparent;
+
+      font-size: 28px;
+      color: white;
+
+      cursor: pointer;
+    }
+
+    /* HERO BODY */
+
+    .hero-content {
+      min-height: 440px;
+
+      position: relative;
+      z-index: 5;
+
+      display: flex;
+      align-items: center;
+
+      padding: 55px 0 45px;
+    }
+
+    .hero-text {
+      max-width: 600px;
+    }
+
+    .hero h1 {
+      max-width: 570px;
+
+      font-size: clamp(39px, 4.2vw, 58px);
+      line-height: 1.08;
+
+      font-weight: 700;
+      letter-spacing: -1.5px;
+    }
+
+    .hero h1 .gold {
+      color: var(--gold);
+    }
+
+    .hero-description {
+      max-width: 525px;
+      margin-top: 24px;
+
+      font-size: 17px;
+      line-height: 1.7;
+
+      color: rgba(255,255,255,.91);
+    }
+
+    .primary-button {
+      margin-top: 30px;
+
+      min-height: 55px;
+      padding: 0 24px;
+
+      border: none;
+      border-radius: 4px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+
+      color: #fff;
+
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+
+      cursor: pointer;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--gold-light),
+          var(--gold-dark)
+        );
+
+      box-shadow: 0 10px 22px rgba(206, 148, 39, .24);
+
+      transition: .25s;
+    }
+
+    .primary-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 13px 28px rgba(206, 148, 39, .32);
+    }
+
+    /* HERO BENEFITS */
+
+    .hero-benefits {
+      min-height: 120px;
+
+      position: relative;
+      z-index: 5;
+
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+
+      border-top: 1px solid rgba(255,255,255,.18);
+    }
+
+    .hero-benefit {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+
+      padding: 23px 27px;
+
+      position: relative;
+    }
+
+    .hero-benefit:not(:last-child)::after {
+      content: "";
+
+      width: 1px;
+      height: 62%;
+
+      background: rgba(255,255,255,.20);
+
+      position: absolute;
+      right: 0;
+      top: 19%;
+    }
+
+    .hero-benefit-icon {
+      width: 49px;
+      flex: 0 0 49px;
+
+      font-size: 34px;
+      color: var(--gold);
+
+      text-align: center;
+    }
+
+    .hero-benefit-title {
+      margin-bottom: 3px;
+
+      font-size: 13px;
+      font-weight: 700;
+
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+
+    .hero-benefit p {
+      font-size: 11px;
+      line-height: 1.5;
+
+      color: rgba(255,255,255,.89);
+    }
+
+    /* =========================================================
+       SOLUÇÕES
+    ========================================================= */
+
+    .solutions {
+      padding: 35px 0 45px;
+      background: #fff;
+    }
+
+    .section-header {
+      text-align: center;
+    }
+
+    .section-eyebrow {
+      color: var(--gold-dark);
+
+      font-size: 13px;
+      font-weight: 700;
+
+      letter-spacing: 1.7px;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      margin: 5px auto 0;
+      max-width: 750px;
+
+      font-size: clamp(27px, 3vw, 36px);
+      line-height: 1.16;
+
+      letter-spacing: -0.8px;
+
+      color: #061429;
+    }
+
+    .title-line {
+      width: 55px;
+      height: 2px;
+
+      margin: 16px auto 0;
+
+      background: var(--gold);
+    }
+
+    .solution-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+
+      margin-top: 34px;
+    }
+
+    .solution-card {
+      min-height: 340px;
+
+      padding: 28px 28px 19px;
+
+      border: 1px solid #ebedef;
+      background: white;
+
+      box-shadow: 0 5px 18px rgba(0, 21, 44, .055);
+
+      text-align: center;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      transition: .25s;
+    }
+
+    .solution-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 32px rgba(0, 21, 44, .11);
+      border-color: rgba(207,154,54,.33);
+    }
+
+    .circle-icon {
+      width: 73px;
+      height: 73px;
+
+      margin-bottom: 25px;
+
+      border-radius: 50%;
+
+      background: var(--navy);
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      color: var(--gold);
+
+      font-size: 31px;
+
+      box-shadow: inset 0 0 0 2px rgba(213,162,64,.23);
+    }
+
+    .solution-card h3 {
+      margin-bottom: 13px;
+
+      font-size: 17px;
+      color: #081729;
+    }
+
+    .solution-card p {
+      font-size: 12px;
+      line-height: 1.75;
+
+      color: #566272;
+    }
+
+    .card-arrow {
+      margin-top: auto;
+      padding-top: 18px;
+
+      color: var(--gold);
+      font-size: 24px;
+
+      transition: transform .2s;
+    }
+
+    .solution-card:hover .card-arrow {
+      transform: translateX(5px);
+    }
+
+    /* =========================================================
+       WHY
+    ========================================================= */
+
+    .why {
+      padding: 20px 0 25px;
+
+      color: white;
+      background:
+        radial-gradient(
+          circle at 10% 50%,
+          rgba(35,75,110,.24),
+          transparent 20%
+        ),
+        var(--navy);
+    }
+
+    .why-header {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .why .section-eyebrow {
+      font-size: 12px;
+      color: var(--gold);
+    }
+
+    .why .section-title {
+      color: white;
+      font-size: 29px;
+      margin-top: 3px;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .why-card {
+      position: relative;
+
+      text-align: center;
+
+      padding: 14px 29px 18px;
+    }
+
+    .why-card:not(:last-child)::after {
+      content: "";
+
+      width: 1px;
+      height: 65%;
+
+      background: rgba(255,255,255,.20);
+
+      position: absolute;
+      top: 18%;
+      right: 0;
+    }
+
+    .why-icon {
+      margin-bottom: 8px;
+
+      font-size: 38px;
+      color: var(--gold);
+    }
+
+    .why-card h3 {
+      margin-bottom: 6px;
+
+      font-size: 13px;
+      font-weight: 700;
+
+      color: var(--gold);
+
+      text-transform: uppercase;
+    }
+
+    .why-card p {
+      max-width: 235px;
+      margin: 0 auto;
+
+      font-size: 11px;
+      line-height: 1.55;
+
+      color: rgba(255,255,255,.91);
+    }
+
+    /* =========================================================
+       CONTACT
+    ========================================================= */
+
+    .contact {
+      padding: 42px 0 45px;
+      background: #fafafa;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      align-items: center;
+      gap: 75px;
+    }
+
+    .contact-text .section-eyebrow {
+      margin-bottom: 3px;
+    }
+
+    .contact-text h2 {
+      max-width: 480px;
+
+      margin-bottom: 19px;
+
+      color: #07172d;
+
+      font-size: 31px;
+      line-height: 1.17;
+    }
+
+    .contact-text h2::after {
+      content: "";
+
+      display: block;
+
+      width: 55px;
+      height: 2px;
+
+      margin-top: 14px;
+
+      background: var(--gold);
+    }
+
+    .contact-text > p {
+      max-width: 515px;
+
+      margin-bottom: 27px;
+
+      color: #4e5968;
+
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .contact-data {
+      display: flex;
+      gap: 48px;
+
+      flex-wrap: wrap;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .contact-item-icon {
+      width: 43px;
+      height: 43px;
+
+      border-radius: 50%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: var(--navy);
+
+      color: white;
+      font-size: 21px;
+    }
+
+    .contact-item small {
+      display: block;
+
+      font-size: 10px;
+      color: #515d6d;
+    }
+
+    .contact-item strong {
+      display: block;
+
+      font-size: 12px;
+      color: #06152a;
+    }
+
+    /* FORM */
+
+    .contact-form {
+      padding: 20px;
+
+      background: #fff;
+
+      border: 1px solid #ebedef;
+      border-radius: 5px;
+
+      box-shadow: var(--shadow);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 13px;
+    }
+
+    .form-control {
+      width: 100%;
+      height: 45px;
+
+      padding: 0 14px;
+
+      border: 1px solid #dfe3e7;
+      outline: none;
+
+      background: #fff;
+      color: #233042;
+
+      font-size: 11px;
+
+      transition: .2s;
+    }
+
+    .form-control:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(210,158,56,.10);
+    }
+
+    select.form-control {
+      cursor: pointer;
+      appearance: auto;
+    }
+
+    .full-field {
+      margin-bottom: 13px;
+    }
+
+    .submit-button {
+      width: 100%;
+      height: 47px;
+
+      border: 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--gold-dark),
+          var(--gold-light),
+          var(--gold-dark)
+        );
+
+      color: #fff;
+
+      text-transform: uppercase;
+
+      font-weight: 700;
+      font-size: 12px;
+
+      cursor: pointer;
+
+      transition: .25s;
+    }
+
+    .submit-button:hover {
+      filter: brightness(1.06);
+    }
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    .footer {
+      padding: 28px 0 0;
+
+      background: var(--navy);
+
+      color: #fff;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr .8fr .8fr 1.15fr;
+      gap: 45px;
+
+      padding-bottom: 24px;
+    }
+
+    .footer-logo {
+      transform: scale(.77);
+      transform-origin: left top;
+
+      margin-bottom: -8px;
+    }
+
+    .footer-about p {
+      max-width: 330px;
+
+      font-size: 11px;
+      line-height: 1.55;
+
+      color: rgba(255,255,255,.75);
+    }
+
+    .footer h4 {
+      margin-bottom: 13px;
+
+      font-size: 12px;
+      color: var(--gold);
+
+      text-transform: uppercase;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 8px;
+
+      font-size: 11px;
+      color: rgba(255,255,255,.82);
+    }
+
+    .footer-links a {
+      transition: .2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold);
+    }
+
+    .footer-links i {
+      width: 13px;
+      color: var(--gold);
+    }
+
+    .footer-contact p {
+      margin-bottom: 7px;
+
+      display: flex;
+      gap: 9px;
+
+      font-size: 11px;
+      line-height: 1.4;
+
+      color: rgba(255,255,255,.84);
+    }
+
+    .footer-contact i {
+      width: 15px;
+      margin-top: 2px;
+
+      color: var(--gold);
+    }
+
+    .footer-bottom {
+      min-height: 40px;
+
+      border-top: 1px solid rgba(255,255,255,.12);
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 20px;
+
+      font-size: 9px;
+      color: rgba(255,255,255,.55);
+    }
+
+    .footer-bottom a {
+      color: var(--gold);
+      text-decoration: underline;
+    }
+
+    /* WHATSAPP */
+
+    .floating-whatsapp {
+      width: 56px;
+      height: 56px;
+
+      position: fixed;
+
+      right: 24px;
+      bottom: 25px;
+
+      z-index: 99;
+
+      border-radius: 50%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: #25d366;
+      color: white;
+
+      font-size: 29px;
+
+      box-shadow: 0 7px 23px rgba(0,0,0,.25);
+
+      transition: .25s;
+    }
+
+    .floating-whatsapp:hover {
+      transform: scale(1.08);
+    }
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+
+    @media (max-width: 1100px) {
+
+      .nav {
+        gap: 20px;
+      }
+
+      .nav a {
+        font-size: 11px;
+      }
+
+      .solution-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .contact-grid {
+        gap: 45px;
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 850px) {
+
+      .header {
+        height: 90px;
+      }
+
+      .mobile-menu-button {
+        display: block;
+      }
+
+      .nav {
+        display: none;
+
+        position: absolute;
+
+        top: 90px;
+        left: 0;
+        right: 0;
+
+        padding: 25px 30px;
+
+        background: #001326;
+
+        flex-direction: column;
+        align-items: stretch;
+
+        border-top: 1px solid rgba(255,255,255,.12);
+
+        box-shadow: 0 15px 30px rgba(0,0,0,.25);
+      }
+
+      .nav.open {
+        display: flex;
+      }
+
+      .nav a {
+        padding: 9px 0;
+      }
+
+      .nav a::after {
+        display: none;
+      }
+
+      .contact-button {
+        justify-content: center;
+        padding: 15px;
+      }
+
+      .hero {
+        min-height: auto;
+        background-position: 62% center;
+      }
+
+      .hero-content {
+        min-height: 510px;
+      }
+
+      .hero-benefits {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero-benefit:nth-child(2)::after {
+        display: none;
+      }
+
+      .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .why-card:nth-child(2)::after {
+        display: none;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .container {
+        width: min(calc(100% - 28px), var(--max-width));
+      }
+
+      .logo {
+        min-width: auto;
+      }
+
+      .logo-symbol {
+        width: 55px;
+        height: 55px;
+
+        font-size: 22px;
+      }
+
+      .logo-title {
+        font-size: 23px;
+      }
+
+      .logo-subtitle {
+        font-size: 7px;
+        letter-spacing: 2.3px;
+      }
+
+      .hero-content {
+        min-height: 530px;
+        padding-top: 55px;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .hero-description {
+        font-size: 14px;
+      }
+
+      .hero-benefits {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-benefit {
+        padding: 18px 5px;
+      }
+
+      .hero-benefit::after {
+        display: none;
+      }
+
+      .hero-benefit:not(:last-child) {
+        border-bottom: 1px solid rgba(255,255,255,.12);
+      }
+
+      .solution-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .solution-card {
+        min-height: 310px;
+      }
+
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .why-card::after {
+        display: none !important;
+      }
+
+      .why-card {
+        padding: 22px 10px;
+      }
+
+      .why-card:not(:last-child) {
+        border-bottom: 1px solid rgba(255,255,255,.12);
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-data {
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom {
+        padding: 13px 0;
+
+        flex-direction: column;
+        justify-content: center;
+
+        text-align: center;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- =======================================================
+       HERO / HEADER
+  ======================================================== -->
+
+  <section class="hero" id="home">
+
+    <header class="header">
+      <div class="container header-content">
+
+        <a href="#home" class="logo" aria-label="LF HUB">
+
+          <div class="logo-symbol">
+            <span>LF</span>
+          </div>
+
+          <div class="logo-text">
+            <div class="logo-title">
+              LF <strong>HUB</strong>
+            </div>
+
+            <div class="logo-subtitle">
+              INTERMEDIAÇÃO
+            </div>
+          </div>
+
+        </a>
+
+        <nav class="nav" id="mainNav">
+
+          <a href="#home" class="active">Home</a>
+
+          <a href="#sobre">
+            Sobre nós
+          </a>
+
+          <a href="#solucoes">
+            Soluções
+          </a>
+
+          <a href="#parceiros">
+            Parceiros
+          </a>
+
+          <a href="#blog">
+            Blog
+          </a>
+
+          <a href="#contato">
+            Contato
+          </a>
+
+          <a
+            href="https://wa.me/5511992007886"
+            target="_blank"
+            class="contact-button"
+          >
+            <i class="fa-brands fa-whatsapp"></i>
+            Fale conosco
+          </a>
+
+        </nav>
+
+        <button
+          type="button"
+          class="mobile-menu-button"
+          id="mobileMenuButton"
+          aria-label="Abrir menu"
+        >
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+      </div>
+    </header>
+
+    <div class="container hero-content">
+
+      <div class="hero-text">
+
+        <h1>
+          Soluções financeiras<br>
+          para impulsionar o<br>
+          <span class="gold">
+            crescimento da<br>
+            sua empresa.
+          </span>
+        </h1>
+
+        <p class="hero-description">
+          Conectamos empresas às melhores alternativas de crédito,
+          capital e estrutura financeira, de forma personalizada
+          e estratégica.
+        </p>
+
+        <a href="#contato" class="primary-button">
+          Solicite uma análise
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="container hero-benefits">
+
+      <div class="hero-benefit">
+
+        <div class="hero-benefit-icon">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+
+        <div>
+          <div class="hero-benefit-title">
+            Segurança
+          </div>
+
+          <p>
+            Processos seguros e<br>
+            transparentes em<br>
+            cada etapa.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="hero-benefit">
+
+        <div class="hero-benefit-icon">
+          <i class="fa-regular fa-clock"></i>
+        </div>
+
+        <div>
+          <div class="hero-benefit-title">
+            Agilidade
+          </div>
+
+          <p>
+            Análise rápida e soluções<br>
+            sob medida para o seu<br>
+            negócio.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="hero-benefit">
+
+        <div class="hero-benefit-icon">
+          <i class="fa-solid fa-people-group"></i>
+        </div>
+
+        <div>
+          <div class="hero-benefit-title">
+            Experiência
+          </div>
+
+          <p>
+            Equipe especializada com<br>
+            ampla experiência no<br>
+            mercado financeiro.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="hero-benefit">
+
+        <div class="hero-benefit-icon">
+          <i class="fa-regular fa-handshake"></i>
+        </div>
+
+        <div>
+          <div class="hero-benefit-title">
+            Relacionamento
+          </div>
+
+          <p>
+            Parcerias sólidas e<br>
+            atendimento próximo<br>
+            e consultivo.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- =======================================================
+       SOLUÇÕES
+  ======================================================== -->
+
+  <section class="solutions" id="solucoes">
+
+    <div class="container">
+
+      <div class="section-header">
+
+        <div class="section-eyebrow">
+          Nossas soluções
+        </div>
+
+        <h2 class="section-title">
+          Soluções completas para cada<br>
+          momento do seu negócio.
+        </h2>
+
+        <div class="title-line"></div>
+
+      </div>
+
+      <div class="solution-grid">
+
+        <!-- Capital de Giro -->
+
+        <article class="solution-card">
+
+          <div class="circle-icon">
+            <i class="fa-solid fa-chart-column"></i>
+          </div>
+
+          <h3>Capital de Giro</h3>
+
+          <p>
+            Recursos para fortalecer o caixa da empresa,
+            financiar operações, equilibrar o fluxo financeiro
+            e sustentar o crescimento.
+          </p>
+
+          <a href="#contato" class="card-arrow">
+            <i class="fa-solid fa-arrow-right-long"></i>
+          </a>
+
+        </article>
+
+        <!-- Home Equity -->
+
+        <article class="solution-card">
+
+          <div class="circle-icon">
+            <i class="fa-solid fa-house"></i>
+          </div>
+
+          <h3>Home Equity</h3>
+
+          <p>
+            Soluções de crédito utilizando imóvel como garantia,
+            com possibilidade de acesso a recursos de maior prazo
+            e condições competitivas.
+          </p>
+
+          <a href="#contato" class="card-arrow">
+            <i class="fa-solid fa-arrow-right-long"></i>
+          </a>
+
+        </article>
+
+        <!-- Escrow -->
+
+        <article class="solution-card">
+
+          <div class="circle-icon">
+            <i class="fa-solid fa-lock"></i>
+          </div>
+
+          <h3>Conta Escrow</h3>
+
+          <p>
+            Estrutura financeira para operações que exigem maior
+            controle, segurança e organização dos recebimentos
+            e pagamentos.
+          </p>
+
+          <a href="#contato" class="card-arrow">
+            <i class="fa-solid fa-arrow-right-long"></i>
+          </a>
+
+        </article>
+
+        <!-- Antecipação -->
+
+        <article class="solution-card">
+
+          <div class="circle-icon">
+            <i class="fa-solid fa-file-invoice-dollar"></i>
+          </div>
+
+          <h3>Antecipação de Recebíveis</h3>
+
+          <p>
+            Transforme recebíveis futuros em capital disponível
+            para sua empresa, melhorando o fluxo de caixa
+            e dando mais agilidade às operações.
+          </p>
+
+          <a href="#contato" class="card-arrow">
+            <i class="fa-solid fa-arrow-right-long"></i>
+          </a>
+
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- =======================================================
+       POR QUE LF HUB
+  ======================================================== -->
+
+  <section class="why" id="sobre">
+
+    <div class="container">
+
+      <div class="why-header">
+
+        <div class="section-eyebrow">
+          Por que LF HUB?
+        </div>
+
+        <h2 class="section-title">
+          Mais que crédito. Parceria para crescer.
+        </h2>
+
+        <div class="title-line"></div>
+
+      </div>
+
+      <div class="why-grid">
+
+        <div class="why-card">
+
+          <div class="why-icon">
+            <i class="fa-solid fa-bullseye"></i>
+          </div>
+
+          <h3>Estratégia</h3>
+
+          <p>
+            Analisamos o seu cenário e estruturamos
+            a melhor solução para o seu negócio.
+          </p>
+
+        </div>
+
+        <div class="why-card">
+
+          <div class="why-icon">
+            <i class="fa-solid fa-bolt"></i>
+          </div>
+
+          <h3>Agilidade</h3>
+
+          <p>
+            Processos simplificados que garantem rapidez
+            na análise e na aprovação.
+          </p>
+
+        </div>
+
+        <div class="why-card">
+
+          <div class="why-icon">
+            <i class="fa-regular fa-user"></i>
+          </div>
+
+          <h3>Relacionamento</h3>
+
+          <p>
+            Atendimento próximo, consultivo e focado
+            em construir relações de longo prazo.
+          </p>
+
+        </div>
+
+        <div class="why-card">
+
+          <div class="why-icon">
+            <i class="fa-regular fa-star"></i>
+          </div>
+
+          <h3>Soluções sob medida</h3>
+
+          <p>
+            Soluções personalizadas de acordo com
+            a necessidade da sua empresa.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- =======================================================
+       CONTATO
+  ======================================================== -->
+
+  <section class="contact" id="contato">
+
+    <div class="container contact-grid">
+
+      <div class="contact-text">
+
+        <div class="section-eyebrow">
+          Vamos conversar?
+        </div>
+
+        <h2>
+          Encontre a solução ideal<br>
+          para o seu negócio.
+        </h2>
+
+        <p>
+          Preencha o formulário ao lado e nossa equipe entrará
+          em contato para entender sua necessidade e apresentar
+          a melhor solução financeira.
+        </p>
+
+        <div class="contact-data">
+
+          <div class="contact-item">
+
+            <div class="contact-item-icon">
+              <i class="fa-brands fa-whatsapp"></i>
+            </div>
+
+            <div>
+              <small>WhatsApp</small>
+              <strong>+55 (11) 99200-7886</strong>
+            </div>
+
+          </div>
+
+          <div class="contact-item">
+
+            <div class="contact-item-icon">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+
+            <div>
+              <small>E-mail</small>
+              <strong>contato@lfhub.com.br</strong>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- FORMULÁRIO -->
+
+      <form
+        class="contact-form"
+        id="contactForm"
+        autocomplete="on"
+      >
+
+        <div class="form-row">
+
+          <input
+            class="form-control"
+            type="text"
+            name="nome"
+            placeholder="Nome completo"
+            required
+          >
+
+          <input
+            class="form-control"
+            type="text"
+            name="empresa"
+            placeholder="Empresa"
+          >
+
+        </div>
+
+        <div class="form-row">
+
+          <input
+            class="form-control"
+            type="email"
+            name="email"
+            placeholder="E-mail"
+            required
+          >
+
+          <input
+            class="form-control"
+            type="tel"
+            name="telefone"
+            id="phone"
+            placeholder="Telefone / WhatsApp"
+            required
+          >
+
+        </div>
+
+        <div class="full-field">
+
+          <select
+            class="form-control"
+            name="solucao"
+            required
+          >
+            <option value="" selected disabled>
+              Solução de interesse
+            </option>
+
+            <option value="Capital de Giro">
+              Capital de Giro
+            </option>
+
+            <option value="Home Equity">
+              Home Equity
+            </option>
+
+            <option value="Conta Escrow">
+              Conta Escrow
+            </option>
+
+            <option value="Antecipação de Recebíveis">
+              Antecipação de Recebíveis
+            </option>
+
+            <option value="Outro">
+              Outro
+            </option>
+          </select>
+
+        </div>
+
+        <div class="full-field">
+
+          <input
+            class="form-control"
+            type="text"
+            name="valor"
+            id="money"
+            placeholder="Valor aproximado (R$)"
+          >
+
+        </div>
+
+        <button
+          type="submit"
+          class="submit-button"
+        >
+          Solicitar contato
+          <i class="fa-solid fa-arrow-right-long"></i>
+        </button>
+
+      </form>
+
+    </div>
+
+  </section>
+
+  <!-- Espaços destinados às âncoras -->
+  <div id="parceiros"></div>
+  <div id="blog"></div>
+
+  <!-- =======================================================
+       FOOTER
+  ======================================================== -->
+
+  <footer class="footer">
+
+    <div class="container footer-grid">
+
+      <!-- LOGO / DESCRIÇÃO -->
+
+      <div class="footer-about">
+
+        <div class="logo footer-logo">
+
+          <div class="logo-symbol">
+            <span>LF</span>
+          </div>
+
+          <div class="logo-text">
+
+            <div class="logo-title">
+              LF <strong>HUB</strong>
+            </div>
+
+            <div class="logo-subtitle">
+              INTERMEDIAÇÃO
+            </div>
+
+          </div>
+
+        </div>
+
+        <p>
+          <strong>LF HUB INTERMEDIAÇÃO LTDA.</strong><br>
+          Conectamos empresas às melhores soluções
+          financeiras, com segurança, agilidade
+          e relacionamento próximo.
+        </p>
+
+      </div>
+
+      <!-- LINKS 1 -->
+
+      <div>
+
+        <h4>Links úteis</h4>
+
+        <ul class="footer-links">
+
+          <li>
+            <i class="fa-solid fa-angle-right"></i>
+            <a href="#sobre">Sobre nós</a>
+          </li>
+
+          <li>
+            <i class="fa-solid fa-angle-right"></i>
+            <a href="#solucoes">Soluções</a>
+          </li>
+
+          <li>
+            <i class="fa-solid fa-angle-right"></i>
+            <a href="#parceiros">Parceiros</a>
+          </li>
+
+        </ul>
+
+      </div>
+
+      <!-- LINKS 2 -->
+
+      <div>
+
+        <h4>&nbsp;</h4>
+
+        <ul class="footer-links">
+
+          <li>
+            <i class="fa-solid fa-angle-right"></i>
+            <a href="#blog">Blog</a>
+          </li>
+
+          <li>
+            <i class="fa-solid fa-angle-right"></i>
+            <a href="#">Trabalhe conosco</a>
+          </li>
+
+          <li>
+            <i class="fa-solid fa-angle-right"></i>
+            <a href="#contato">Contato</a>
+          </li>
+
+        </ul>
+
+      </div>
+
+      <!-- CONTATO -->
+
+      <div class="footer-contact">
+
+        <h4>Fale conosco</h4>
+
+        <p>
+          <i class="fa-solid fa-globe"></i>
+          <span>lfhub.com.br</span>
+        </p>
+
+        <p>
+          <i class="fa-solid fa-envelope"></i>
+          <span>contato@lfhub.com.br</span>
+        </p>
+
+        <p>
+          <i class="fa-solid fa-location-dot"></i>
+
+          <span>
+            Alameda Terracota, 185<br>
+            Sala 716 - São Caetano do Sul / SP
+          </span>
+        </p>
+
+        <p>
+          <i class="fa-brands fa-whatsapp"></i>
+          <span>+55 (11) 99200-7886</span>
+        </p>
+
+      </div>
+
+    </div>
+
+    <div class="container footer-bottom">
+
+      <span>
+        © 2024 LF HUB INTERMEDIAÇÃO LTDA.
+        Todos os direitos reservados.
+      </span>
+
+      <a href="#">
+        Política de Privacidade
+      </a>
+
+    </div>
+
+  </footer>
+
+  <!-- WHATSAPP FLUTUANTE -->
+
+  <a
+    class="floating-whatsapp"
+    href="https://wa.me/5511992007886"
+    target="_blank"
+    aria-label="WhatsApp"
+    title="Fale conosco pelo WhatsApp"
+  >
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- =======================================================
+       JAVASCRIPT
+  ======================================================== -->
+
+  <script>
+
+    /* MOBILE MENU */
+
+    const mobileMenuButton =
+      document.getElementById("mobileMenuButton");
+
+    const mainNav =
+      document.getElementById("mainNav");
+
+    mobileMenuButton.addEventListener("click", () => {
+
+      mainNav.classList.toggle("open");
+
+      const icon =
+        mobileMenuButton.querySelector("i");
+
+      if (mainNav.classList.contains("open")) {
+
+        icon.classList.remove("fa-bars");
+        icon.classList.add("fa-xmark");
+
+      } else {
+
+        icon.classList.remove("fa-xmark");
+        icon.classList.add("fa-bars");
+
+      }
+
+    });
+
+
+    /* FECHA MENU MOBILE AO CLICAR */
+
+    document
+      .querySelectorAll("#mainNav a")
+      .forEach(link => {
+
+        link.addEventListener("click", () => {
+
+          mainNav.classList.remove("open");
+
+          const icon =
+            mobileMenuButton.querySelector("i");
+
+          icon.classList.remove("fa-xmark");
+          icon.classList.add("fa-bars");
+
+        });
+
+      });
+
+
+    /* MÁSCARA TELEFONE */
+
+    const phoneInput =
+      document.getElementById("phone");
+
+    phoneInput.addEventListener("input", function () {
+
+      let value =
+        this.value.replace(/\D/g, "");
+
+      value =
+        value.substring(0, 11);
+
+      if (value.length > 10) {
+
+        value =
+          value.replace(
+            /^(\d{2})(\d{5})(\d{4})$/,
+            "($1) $2-$3"
+          );
+
+      } else if (value.length > 6) {
+
+        value =
+          value.replace(
+            /^(\d{2})(\d{4})(\d{0,4})$/,
+            "($1) $2-$3"
+          );
+
+      } else if (value.length > 2) {
+
+        value =
+          value.replace(
+            /^(\d{2})(\d+)/,
+            "($1) $2"
+          );
+
+      } else if (value.length > 0) {
+
+        value =
+          value.replace(
+            /^(\d{0,2})/,
+            "($1"
+          );
+
+      }
+
+      this.value = value;
+
+    });
+
+
+    /* MÁSCARA DE VALOR */
+
+    const moneyInput =
+      document.getElementById("money");
+
+    moneyInput.addEventListener("input", function () {
+
+      let value =
+        this.value.replace(/\D/g, "");
+
+      if (!value) {
+        this.value = "";
+        return;
+      }
+
+      const number =
+        Number(value) / 100;
+
+      this.value =
+        number.toLocaleString(
+          "pt-BR",
+          {
+            style: "currency",
+            currency: "BRL"
+          }
+        );
+
+    });
+
+
+    /* ENVIO DO FORMULÁRIO PARA WHATSAPP */
+
+    const contactForm =
+      document.getElementById("contactForm");
+
+    contactForm.addEventListener(
+      "submit",
+      function (event) {
+
+        event.preventDefault();
+
+        const formData =
+          new FormData(contactForm);
+
+        const nome =
+          formData.get("nome") || "";
+
+        const empresa =
+          formData.get("empresa") || "";
+
+        const email =
+          formData.get("email") || "";
+
+        const telefone =
+          formData.get("telefone") || "";
+
+        const solucao =
+          formData.get("solucao") || "";
+
+        const valor =
+          formData.get("valor") || "";
+
+        const mensagem =
+`Olá! Gostaria de solicitar uma análise.
+
+Nome: ${nome}
+Empresa: ${empresa}
+E-mail: ${email}
+Telefone: ${telefone}
+Solução de interesse: ${solucao}
+Valor aproximado: ${valor}`;
+
+        const whatsappNumber =
+          "5511992007886";
+
+        const whatsappURL =
+          "https://wa.me/" +
+          whatsappNumber +
+          "?text=" +
+          encodeURIComponent(mensagem);
+
+        window.open(
+          whatsappURL,
+          "_blank"
+        );
+
+      }
+    );
+
+  </script>
+
+</body>
+</html>
